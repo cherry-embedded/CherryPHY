@@ -105,9 +105,6 @@
 extern "C" {
 #endif
 
-void chry_mdio_write(uint8_t busid, uint16_t phy_addr, uint16_t regnum, uint16_t val);
-uint16_t chry_mdio_read(uint8_t busid, uint16_t phy_addr, uint16_t regnum);
-
 #ifdef __cplusplus
 }
 #endif

@@ -8,11 +8,11 @@ extern uint16_t xxx_mdio_read(struct chry_phy_device *phydev, uint16_t phy_addr,
 
 struct chry_phy_device phydev1;
 
-struct chry_phy_status current_status;
+struct chry_phy_status current_status = {0};
 
 void phy_monitor(void)
 {
-    struct chry_phy_status status;
+    struct chry_phy_status status = {0};
 
     chry_phy_get_status(&phydev1, &status);
 
@@ -44,7 +44,6 @@ int main(void)
     phydev1.mdio_write = xxx_mdio_write;
     phydev1.mdio_read = xxx_mdio_read;
     phydev1.user_data = xxx;
-    phydev1.phy_addr = PHY_ADDR;
     chry_phy_init(&phydev1, &config);
 
     board_timer_create(500, phy_monitor);
